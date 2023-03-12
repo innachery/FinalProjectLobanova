@@ -13,26 +13,28 @@ Feature: Desktop Checkout for Guest User
       | Thinking Java Part I   |
       | Core Java Professional |
     And I apply the following search filters
-      | Price range  | 30 € +       |
-      | Availability | In stock(4)  |
-      | Language     | English(4)   |
-      | Format       | Paperback(4) |
+      | Price range  | 30 € +         |
+      | Availability | In Stock (5)   |
+      | Language     | English (17)   |
+      | Format       | Paperback (22) |
     And Search results contain only the following products
-      | Thinking in Java                          |
-      | Think Java                                |
-      | Thinking Recursively - A 20th Anniversary |
-      | Think Data Structures                     |
-    And I click Add to Basket button for product with name "Thinking in Java "
+      | Thinking in Java                                                  |
+      | Think Java                                                        |
+      | Thinking Recursively - A 20th Anniversary Edition with Java (WSE) |
+      | Think Data Structures                                             |
+    And I click Add to Basket button for product with name Thinking in Java
     And I select Basket Checkout in basket pop-up
     And I am redirected to a Basket Page
     And Basket order summary is as following:
       | Delivery cost | FREE    |
-      | Total         | 66,00 € |
-    And I click "Checkout" button on "Basket" page
-    And I checkout as a new customer with email "test@user.com" and phone number "+48452699442"
+      | Total         | 65,74 € |
+    And I click Checkout button on Basket page
+    And I checkout as a new customer with email and phone number
+      | test@user.com |
+      | +48452699442  |
     And Checkout order summary is as following:
       | Sub-total (incl. taxes) | Delivery | Total   |
-      | 66,00 €                 | FREE     | 66,00 € |
+      | 65,74 €                 | FREE     | 65,74 € |
     And I fill delivery address information manually:
       | Full name     | Address line 1 | Town/City | Postcode/ZIP |
       | INNA LOBANOVA | Ogrody, 11/57  | Bydgoszcz | 85-870       |

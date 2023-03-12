@@ -1,17 +1,20 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
 public class BaseClass {
-    public WebDriver driver;
+    public static WebDriver driver;
 
-    public void initializeDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+    public static void initializeDriver() {
+        WebDriverManager.chromedriver().setup();
+      //  System.setProperty("webdriver.chrome.driver", "C:\\Users\\Алекс\\IdeaProjects\\first-maven\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get("https://www.bookdepository.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 

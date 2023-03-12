@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FilterForm extends BasePage {
+public class FilterForm extends BaseClass {
     WebElement priceRangeCombobox = driver.findElement(By.id("filterPrice"));
     WebElement priceFilter = driver.findElement(By.xpath("//option[@value=\"high\"]"));
     WebElement availabilityCombobox = driver.findElement(By.id("filterAvailability"));
@@ -16,10 +16,6 @@ public class FilterForm extends BasePage {
     WebElement formatFilter = driver.findElement(By.xpath("//option[@label=\"Paperback (22)\"]"));
     WebElement refineResultsButton = driver.findElement(By.xpath("//button[contains(text(),'Refine results')]"));
 
-    public FilterForm(WebDriver driver) {
-        super(driver);
-    }
-
 
     public SearchPage applyFilters() {
         priceRangeCombobox.click();
@@ -29,10 +25,29 @@ public class FilterForm extends BasePage {
         formatCombobox.click();
         formatFilter.click();
         refineResultsButton.click();
-        return new SearchPage(driver);
+        return new SearchPage();
     }
 
+    public String getPriceFilter() {
+        String actualPriceFilter = priceFilter.getText();
+        return actualPriceFilter;
 
+    }
+
+    public String getAvailabilityFilter() {
+        String actualAvailabilityFilter = availabilityFilter.getText();
+        return actualAvailabilityFilter;
+    }
+
+    public String getLanguageFilter() {
+        String actualLanguageFilter = languageFilter.getText();
+        return actualLanguageFilter;
+    }
+
+    public String getFormatFilter() {
+        String actualFormatFilter = formatFilter.getText();
+        return actualFormatFilter;
+    }
 }
 
 

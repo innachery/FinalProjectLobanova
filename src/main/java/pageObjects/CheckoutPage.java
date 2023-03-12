@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CheckoutPage extends BasePage {
+public class CheckoutPage extends BaseClass {
     WebElement emailAddressInput = driver.findElement(By.xpath("//input[@name=\"emailAddress\"]"));
     WebElement phonePrefixCombobox = driver.findElement(By.xpath("//div[@id=\"phonePrefix\"]//span"));
-    WebElement searchPhonePrefix = driver.findElement(By.id("PL"));
+    WebElement searchPhonePrefix = driver.findElement(By.xpath("//li[@name=\"option-PL\"]"));
     WebElement phoneNumberInput = driver.findElement(By.xpath("//input[@name=\"delivery-telephone\"]"));
 
     WebElement totalField = driver.findElement(By.xpath("//dd[@class=\"text-right total-price\"]"));
@@ -27,9 +27,6 @@ public class CheckoutPage extends BasePage {
     WebElement checker = driver.findElement(By.xpath("//label[@class=\"checker\"]"));
     WebElement errorMessage = driver.findElement(By.xpath("//div[@class=\"buynow-error-msg\"]"));
 
-    public CheckoutPage(WebDriver driver) {
-        super(driver);
-    }
 
     public CheckoutPage enterEmailAndPhoneNumber(String email, String number) {
         emailAddressInput.sendKeys(email);
@@ -75,11 +72,13 @@ public class CheckoutPage extends BasePage {
         checker.isSelected();
         return true;
     }
-    public CheckoutPage buyTheBook(){
+
+    public CheckoutPage buyTheBook() {
         buyNowButton.click();
         return this;
     }
-    public boolean errorMassageIsDisplayed(){
+
+    public boolean errorMassageIsDisplayed() {
         errorMessage.isDisplayed();
         return true;
     }

@@ -5,7 +5,7 @@ import io.cucumber.java.Before;
 import org.example.BaseClass;
 
 public class Hooks extends BaseClass {
-    @Before
+   /* @Before
     public void setup() {
         initializeDriver();
     }
@@ -13,5 +13,5 @@ public class Hooks extends BaseClass {
     @After
     public void close() {
         closeBrowser();
-    }
+    }*/
 }

@@ -5,15 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PopUp extends BasePage {
-    WebElement basketCheckoutButton = driver.findElement(By.xpath("//span[@id=\"basket-total-cost\"]//following-sibling::a[2]"));
+public class PopUp extends BaseClass {
+    WebElement basketCheckoutButton = driver.findElement(By.xpath("//a[text()=\"Checkout\"][1]"));
 
-    public PopUp(WebDriver driver) {
-        super(driver);
-    }
 
-    public BasketPage goToBasket(){
+    public BasketPage goToBasket() {
         basketCheckoutButton.click();
-        return new BasketPage(driver);
+        return new BasketPage();
     }
 }
